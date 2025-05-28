@@ -3,33 +3,58 @@ package com.pluralsight.OrderManager;
 import com.pluralsight.Interface.PricedItem;
 import com.pluralsight.Interface.Topping;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Sandwich implements PricedItem{
 
-    protected String bread;
-    protected String size;
-    boolean isToasted;
+    private String bread;
+    private String size;
+    private boolean isToasted;
 
-    public Sandwich(String bread, String size, boolean isToasted) {
+    private List<Topping> toppings = new ArrayList<>();
+
+    public Sandwich(String bread, String size, boolean isToasted, List<Topping> toppings) {
         this.bread = bread;
         this.size = size;
         this.isToasted = isToasted;
     }
 
+    public void addTopping(Topping topping) {
+        toppings.add(topping);
+    }
+
+    public void addToppings(List<Topping> toppings) {
+        this.toppings.addAll(toppings);
+    }
+
+    public void setToasted(boolean toasted) {
+        isToasted = toasted;
+    }
+
+    public String getBread() {
+        return bread;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public boolean isToasted() {
+        return isToasted;
+    }
+
+    public List<Topping> getToppings() {
+        return toppings;
+    }
 
     @Override
     public String getName() {
-        return size + "\"" + (isToasted ? "Toasted" : "") + bread + "Sandwich";
+        return (isToasted ? "Toasted" : "") + size + "\" " + bread + " Sandwich";
     }
 
     @Override
     public double getPrice() {
-        return switch (size){
-            case "4" -> 5.50;
-            case "8" -> 7.00;
-            case "12" -> 8.50;
-            default -> 0.0;
-        };
+        return toppings.stream().mapToDouble(Topping::getPrice).sum();
     }
 }
