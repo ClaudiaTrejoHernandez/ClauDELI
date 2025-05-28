@@ -1,4 +1,11 @@
 package com.pluralsight.Screen;
 
-public class CheckOutScreen {
+import com.pluralsight.Interface.PricedItem;
+
+public class CheckOutScreen implements PricedItem {
+
+    @Override
+    public void display() {
+
+    }
 }
