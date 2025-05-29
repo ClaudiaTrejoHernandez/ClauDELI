@@ -71,19 +71,8 @@ public class Order{
         }
     }
 
-
-
-
-    public List<PricedItem> getItems() {
-        return items;
-    }
-
     public void clearItems() {
         items.clear();
-    }
-
-    public boolean isEmpty() {
-        return items.isEmpty();
     }
 
 }
