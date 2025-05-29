@@ -4,7 +4,7 @@ import com.pluralsight.Interface.PricedItem;
 
 public class Chip implements PricedItem {
     private String flavor;
-    private double price = 1.00;
+    private double price = 1.50;
 
     public Chip(String flavor) {
         this.flavor = flavor;
