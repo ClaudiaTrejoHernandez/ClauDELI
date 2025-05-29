@@ -77,10 +77,4 @@ public class RegularTopping implements Topping {
             default -> 0.0;
         };
     }
-
-    public boolean isExtra() {
-        return isExtra;
-    }
-
-
 }
