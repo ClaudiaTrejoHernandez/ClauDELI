@@ -2,12 +2,11 @@ package com.pluralsight.Screen;
 
 import com.pluralsight.Interface.Screen;
 import com.pluralsight.OrderManager.Order;
-import java.util.InputMismatchException;
-import java.util.Scanner;
+import com.pluralsight.OrderManager.Sandwich;
+import com.pluralsight.Utility.ConsoleHelper;
 
-public class HomeScreen implements Screen {
+public class HomeScreen implements Screen<Void> {
 
-    public static Scanner read = new Scanner(System.in);
     private Order order;
 
     public HomeScreen(Order order) {
@@ -15,37 +14,24 @@ public class HomeScreen implements Screen {
     }
 
     @Override
-    public void display() {
+    public Void display() {
+        System.out.println("Welcome to ClauDELI");
 
-        try {
-            System.out.println("Welcome to ClauDELI");
+        while (true) {
+            System.out.println("Choose an option: ");
+            System.out.println("1) New Order");
+            System.out.println("0) Exit ");
 
-            while (true) {
-                System.out.println("Choose an option: ");
-                System.out.println("1) New Order");
-                System.out.println("0) Exit ");
-                int choice = read.nextInt();
-                read.nextLine();
+            int choice = ConsoleHelper.readInt("Enter your choice: ", 0, 1);
 
-                switch (choice) {
-                    case 1 -> newOrder();
-                    case 0 -> {
-                        System.out.println("Exiting ClauDELI. Come Again!👋");
-                        return;
-                    }
-                    default -> System.out.println("❌ Invalid choice. Please try again.");
+            switch (choice) {
+                case 1 -> newOrder();
+                case 0 -> {
+                    System.out.println("Exiting ClauDELI. Come Again!👋");
+                    System.exit(0);
                 }
-
             }
-        } catch (InputMismatchException e){
-            System.out.println("Please input a valid option (1, 0): ");
-            read.nextLine();
         }
-
-        catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-
     }
 
     private void newOrder() {
