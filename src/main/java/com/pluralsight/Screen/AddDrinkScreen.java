@@ -1,61 +1,38 @@
 package com.pluralsight.Screen;
+
 import com.pluralsight.Interface.Screen;
 import com.pluralsight.OrderManager.Drink;
-import com.pluralsight.OrderManager.Order;
+import com.pluralsight.Utility.ConsoleHelper;
 
-import java.util.InputMismatchException;
-import java.util.Scanner;
+public class AddDrinkScreen implements Screen<Drink> {
 
-public class AddDrinkScreen implements Screen {
-
-    private static Scanner read = new Scanner(System.in);
-
+    @Override
     public Drink display() {
         String size = "";
         String flavor = "";
 
-            while (true) {
-                System.out.println("Choose your Drink size:");
-                System.out.println("1) Small ($2.00");
-                System.out.println("2) Medium ($2.50");
-                System.out.println("3) Large ($3.00");
+        // Get drink size
+        int sizeChoice = ConsoleHelper.readInt(
+                "Choose your Drink size:\n1) Small ($2.00)\n2) Medium ($2.50)\n3) Large ($3.00)", 1, 3);
 
-                int choice = read.nextInt();
-                read.nextLine();
-
-                switch (choice) {
-                    case 1 -> size = "Small";
-                    case 2 -> size = "Medium";
-                    case 3 -> size = "Large";
-                    default -> System.out.println("❌ Invalid size. Please try again.");
-                }
-
-                if (!size.isEmpty()) break;
-                break;
+            switch (sizeChoice) {
+                case 1 -> size = "Small";
+                case 2 -> size = "Medium";
+                case 3 -> size = "Large";
             }
 
-                while (true) {
-                    System.out.println("Choose your flavor:");
-                    System.out.println("1) Pepsi");
-                    System.out.println("2) Fanta");
-                    System.out.println("3) Lemonade");
-                    System.out.println("4) Dr. Pepper");
+        // Get drink flavor
+        int flavorChoice = ConsoleHelper.readInt(
+            "Choose your Drink flavor:\n1) Pepsi\n2) Fanta\n3) Lemonade\n4) Dr. Pepper", 1, 4);
 
-                    int choice = read.nextInt();
-                    read.nextLine();
-
-                    switch (choice) {
-                        case 1 -> flavor = "Pepsi";
-                        case 2 -> flavor = "Fanta";
-                        case 3 -> flavor = "Lemonade";
-                        case 4 -> flavor = "Dr. Pepper";
-                        default -> System.out.println("❌ Invalid flavor. Please try again.");
-                    }
-
-                    if (!flavor.isEmpty()) break;
+            switch (flavorChoice) {
+                case 1 -> flavor = "Pepsi";
+                case 2 -> flavor = "Fanta";
+                case 3 -> flavor = "Lemonade";
+                case 4 -> flavor = "Dr. Pepper";
             }
-            return new Drink(size, flavor);
 
-        }
+        System.out.println("\n✅ " + size + " " + flavor + " selected!");
+        return new Drink(size, flavor);
     }
-
+}
