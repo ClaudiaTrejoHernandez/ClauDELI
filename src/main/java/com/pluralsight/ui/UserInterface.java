@@ -13,8 +13,7 @@ public class UserInterface {
         homeScreen.display();
 
         AddDrinkScreen drinkScreen = new AddDrinkScreen();
-        Drink userDrink = drinkScreen.display();
-        currentOrder.addItem(userDrink);
+        drinkScreen.display();
 
 
 
