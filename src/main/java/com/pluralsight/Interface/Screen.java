@@ -1,5 +1,7 @@
 package com.pluralsight.Interface;
 
-public interface Screen {
-    void display();
+import com.pluralsight.OrderManager.Sandwich;
+
+public interface Screen <T> {
+    T display();
 }
