@@ -24,8 +24,8 @@ public class ConsoleHelper {
         }
     }
 
-    public static String readLine(String prompt) {
-        System.out.println(prompt);
-        return read.nextLine();
-    }
+//    public static String readLine(String prompt) {
+//        System.out.println(prompt);
+//        return read.nextLine();
+//    }
 }
