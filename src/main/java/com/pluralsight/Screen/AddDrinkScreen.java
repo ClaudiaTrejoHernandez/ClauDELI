@@ -23,13 +23,13 @@ public class AddDrinkScreen implements Screen<Drink> {
 
         // Get drink flavor
         int flavorChoice = ConsoleHelper.readInt(
-            "Choose your Drink flavor:\n1) Pepsi\n2) Fanta\n3) Lemonade\n4) Dr. Pepper", 1, 4);
+            "Choose your Drink flavor:\n1) Pepsi\n2) Fanta\n3) Dr. Pepper\n4) Lemonade", 1, 4);
 
             switch (flavorChoice) {
                 case 1 -> flavor = "Pepsi";
                 case 2 -> flavor = "Fanta";
-                case 3 -> flavor = "Lemonade";
-                case 4 -> flavor = "Dr. Pepper";
+                case 3 -> flavor = "Dr. Pepper";
+                case 4 -> flavor = "Lemonade";
             }
 
         System.out.println("\n✅ " + size + " " + flavor + " selected!");
