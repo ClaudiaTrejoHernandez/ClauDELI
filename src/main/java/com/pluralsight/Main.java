@@ -1,12 +1,14 @@
 package com.pluralsight;
 
-import com.pluralsight.ui.UserInterface;
+import com.pluralsight.OrderManager.Order;
+import com.pluralsight.Screen.HomeScreen;
 
 public class Main {
     public static void main(String[] args) {
 
-        UserInterface userInterface = new UserInterface();
-        userInterface.start();
+        Order currentOrder = new Order();
 
+        HomeScreen homeScreen = new HomeScreen(currentOrder);
+        homeScreen.display();
     }
 }
