@@ -9,7 +9,7 @@ public class AddChipsScreen implements Screen<Chip> {
     @Override
     public Chip display() {
         System.out.println("✦🍃━━━━━━━━━━━━━༺☁︎｡⋆｡ ﾟ☾ ﾟ｡⋆｡☁︎༻━━━━━━━━━━━━━━━🍃✦");
-        System.out.println("         🍟 Choose Your Chips 🍟");
+        System.out.println("               🍟 Choose Your Chips 🍟");
         System.out.println("✦🍃━━━━━━━━━━━━━༺｡⋆｡☾｡⋆｡☁︎｡⋆｡☁︎༻━━━━━━━━━━━━━━━🍃✦\n");
 
         int chipChoice = ConsoleHelper.readInt(

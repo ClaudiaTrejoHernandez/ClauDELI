@@ -8,29 +8,40 @@ public class AddDrinkScreen implements Screen<Drink> {
 
     @Override
     public Drink display() {
+        System.out.println("✦🍃━━━━━━━━━━━━━༺☁︎｡⋆｡ ﾟ☾ ﾟ｡⋆｡☁︎༻━━━━━━━━━━━━━━━🍃✦");
+        System.out.println("               🥤 Choose Your Drink 🥤");
+        System.out.println("✦🍃━━━━━━━━━━━━━༺｡⋆｡☾｡⋆｡☁︎｡⋆｡☁︎༻━━━━━━━━━━━━━━━🍃✦\n");
+
         String size = "";
         String flavor = "";
 
         // Get drink size
         int sizeChoice = ConsoleHelper.readInt(
-                "Choose your Drink size:\n1) Small ($2.00)\n2) Medium ($2.50)\n3) Large ($3.00)", 1, 3);
+                "🍶 Choose your drink size:\n" +
+                        "   1️⃣ Small ($2.00)\n" +
+                        "   2️⃣ Medium ($2.50)\n" +
+                        "   3️⃣ Large ($3.00)", 1, 3);
 
-            switch (sizeChoice) {
-                case 1 -> size = "Small";
-                case 2 -> size = "Medium";
-                case 3 -> size = "Large";
-            }
+        switch (sizeChoice) {
+            case 1 -> size = "Small";
+            case 2 -> size = "Medium";
+            case 3 -> size = "Large";
+        }
 
         // Get drink flavor
         int flavorChoice = ConsoleHelper.readInt(
-            "Choose your Drink flavor:\n1) Pepsi\n2) Fanta\n3) Dr. Pepper\n4) Lemonade", 1, 4);
+                "🥤 Choose your drink flavor:\n" +
+                        "   1️⃣ Pepsi\n" +
+                        "   2️⃣ Fanta\n" +
+                        "   3️⃣ Dr. Pepper\n" +
+                        "   4️⃣ Lemonade", 1, 4);
 
-            switch (flavorChoice) {
-                case 1 -> flavor = "Pepsi";
-                case 2 -> flavor = "Fanta";
-                case 3 -> flavor = "Dr. Pepper";
-                case 4 -> flavor = "Lemonade";
-            }
+        switch (flavorChoice) {
+            case 1 -> flavor = "Pepsi";
+            case 2 -> flavor = "Fanta";
+            case 3 -> flavor = "Dr. Pepper";
+            case 4 -> flavor = "Lemonade";
+        }
 
         System.out.println("\n✅ " + size + " " + flavor + " selected!");
         return new Drink(size, flavor);
