@@ -7,9 +7,6 @@ import com.pluralsight.OrderManager.Order;
 import com.pluralsight.OrderManager.Sandwich;
 import com.pluralsight.Utility.ConsoleHelper;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-
 public class OrderScreen implements Screen<Void> {
 
     private Order order;
@@ -20,17 +17,19 @@ public class OrderScreen implements Screen<Void> {
 
     @Override
     public Void display() {
-        System.out.println("Starting a new order...\n");
+        System.out.println("✦🍃━━━━━━━━━━━━━༺☁︎｡⋆｡ ﾟ☾ ﾟ｡⋆｡☁︎༻━━━━━━━━━━━━━━━🍃✦");
+        System.out.println("            🛒 Starting a New Order 🛒");
+        System.out.println("✦🍃━━━━━━━━━━━━━༺｡⋆｡☾｡⋆｡☁︎｡⋆｡☁︎༻━━━━━━━━━━━━━━━🍃✦\n");
 
         while (true) {
             int choice = ConsoleHelper.readInt(
-                    "\nChoose an item to add:\n" +
-                            "1) Custom Sandwich\n" +
-                            "2) Signature Sandwich\n" +
-                            "3) Add Drink\n" +
-                            "4) Add chips\n" +
-                            "5) Checkout\n" +
-                            "0) Cancel Order", 0, 5);
+                    "\n🍽️ Choose an item to add:\n" +
+                            "   1️⃣ Custom Sandwich 🥪\n" +
+                            "   2️⃣ Signature Sandwich 🥪\n" +
+                            "   3️⃣ Add Drink 🥤\n" +
+                            "   4️⃣ Add Chips 🍟\n" +
+                            "   5️⃣ Checkout 🛒\n" +
+                            "   0️⃣ Cancel Order 🛑", 0, 5);
 
             switch (choice) {
                 case 1 -> customSandwich();
@@ -45,7 +44,7 @@ public class OrderScreen implements Screen<Void> {
                     cancelOrder();
                     return null;
                 }
-                default -> System.out.println("❌ Invalid choice. Please try again.");  // Should never occur due to validation
+                default -> System.out.println("❌ Invalid choice. Please try again.");
             }
         }
     }
@@ -83,14 +82,17 @@ public class OrderScreen implements Screen<Void> {
     }
 
     private void checkout() {
-        System.out.println("\n🧾 Order Summary:");
+        System.out.println("\n✦🍃━━━━━━━━━━━━━༺☁︎｡⋆｡ ﾟ☾ ﾟ｡⋆｡☁︎༻━━━━━━━━━━━━━━━🍃✦");
+        System.out.println("\n                  🧾 Order Summary:");
         order.printReceipt();
-        System.out.println("💲 Total: $" + String.format("%.2f", order.getTotalPrice()));
+        System.out.println("📌 Total: $" + String.format("%.2f", order.getTotalPrice()));
+        System.out.println("✦🍃━━━━━━━━━━━━━༺｡⋆｡☾｡⋆｡☁︎｡⋆｡☁︎༻━━━━━━━━━━━━━━━🍃✦");
 
         // Ask the user to confirm or cancel the order
         int choice = ConsoleHelper.readInt(
-                "\nWould you like to confirm this order?\n1) Confirm and Save Receipt\n0) Cancel Order and Return to Home", 0, 1);
-
+                "\nWould you like to confirm this order?\n" +
+                        "   1️⃣ Confirm and Save Receipt\n" +
+                        "   0️⃣ Cancel Order and Return to Home 🏠", 0, 1);
         if (choice == 1) {
             order.saveReceiptAsTXT();
             System.out.println("✅ Thank you for your order!\n");
