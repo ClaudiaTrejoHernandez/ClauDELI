@@ -15,24 +15,29 @@ public class HomeScreen implements Screen<Void> {
 
     @Override
     public Void display() {
-        System.out.println("Welcome to ClauDELI");
+        System.out.println("✦🍃━━━━━━━━━━━━━༺☁︎｡⋆｡ ﾟ☾ ﾟ｡⋆｡☁︎༻━━━━━━━━━━━━━━━🍃✦");
+        System.out.println("       🥪 Welcome to ClauDELI 🥪");
+        System.out.println("✦🍃━━━━━━━━━━━━━༺｡⋆｡☾｡⋆｡☁︎｡⋆｡☁︎༻━━━━━━━━━━━━━━━🍃✦\n");
 
         while (true) {
-            System.out.println("Choose an option: ");
-            System.out.println("1) New Order");
-            System.out.println("0) Exit ");
+            System.out.println("\n🍽️ What would you like to do?");
+            System.out.println("   1️⃣ Start a New Order");
+            System.out.println("   0️⃣ Exit 🏠");
+            System.out.println("✦🍃━━━━━━━━━━━━━༺☁︎｡⋆｡ ﾟ☾ ﾟ｡⋆｡☁︎༻━━━━━━━━━━━━━━━🍃✦");
 
-            int choice = ConsoleHelper.readInt("Enter your choice: ", 0, 1);
+            int choice = ConsoleHelper.readInt("👉 Enter your choice: ", 0, 1);
 
             switch (choice) {
                 case 1 -> newOrder();
                 case 0 -> {
-                    System.out.println("Exiting ClauDELI. Come Again!👋");
+                    System.out.println("\n👋 Thank you for visiting ClauDELI! See you soon! 🌈");
                     System.exit(0);
                 }
             }
         }
     }
+
+
 
     private void newOrder() {
         OrderScreen orderScreen = new OrderScreen(order);
