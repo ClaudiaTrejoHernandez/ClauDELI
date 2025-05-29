@@ -18,8 +18,8 @@ public class OrderScreen implements Screen<Void> {
     @Override
     public Void display() {
         System.out.println("✦🍃━━━━━━━━━━━━━༺☁︎｡⋆｡ ﾟ☾ ﾟ｡⋆｡☁︎༻━━━━━━━━━━━━━━━🍃✦");
-        System.out.println("            🛒 Starting a New Order 🛒");
-        System.out.println("✦🍃━━━━━━━━━━━━━༺｡⋆｡☾｡⋆｡☁︎｡⋆｡☁︎༻━━━━━━━━━━━━━━━🍃✦\n");
+        System.out.println("             🛒 Starting a New Order 🛒");
+        System.out.println("✦🍃━━━━━━━━━━━━━༺｡⋆｡☾｡⋆｡☁︎｡⋆｡☁︎༻━━━━━━━━━━━━━━━🍃✦");
 
         while (true) {
             int choice = ConsoleHelper.readInt(
@@ -29,7 +29,7 @@ public class OrderScreen implements Screen<Void> {
                             "   3️⃣ Add Drink 🥤\n" +
                             "   4️⃣ Add Chips 🍟\n" +
                             "   5️⃣ Checkout 🛒\n" +
-                            "   0️⃣ Cancel Order 🛑", 0, 5);
+                            "   0️⃣ Cancel Order 🛑" ,  0, 5);
 
             switch (choice) {
                 case 1 -> customSandwich();
@@ -44,7 +44,7 @@ public class OrderScreen implements Screen<Void> {
                     cancelOrder();
                     return null;
                 }
-                default -> System.out.println("❌ Invalid choice. Please try again.");
+                default -> System.out.println("\n❌ Invalid choice. Please try again.\n");
             }
         }
     }

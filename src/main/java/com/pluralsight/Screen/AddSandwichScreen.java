@@ -11,7 +11,7 @@ public class AddSandwichScreen implements Screen<Sandwich> {
     @Override
     public Sandwich display() {
         System.out.println("✦🍃━━━━━━━━━━━━━༺☁︎｡⋆｡ ﾟ☾ ﾟ｡⋆｡☁︎༻━━━━━━━━━━━━━━━🍃✦");
-        System.out.println("         🥪 Build Your Sandwich 🥪");
+        System.out.println("              🥪 Build Your Sandwich 🥪");
         System.out.println("✦🍃━━━━━━━━━━━━━༺｡⋆｡☾｡⋆｡☁︎｡⋆｡☁︎༻━━━━━━━━━━━━━━━🍃✦\n");
 
 
@@ -28,6 +28,7 @@ public class AddSandwichScreen implements Screen<Sandwich> {
 
 // 2) Size
         String[] sizes = {"4", "8", "12"};
+        ConsoleHelper.printDivider();
         int sizeChoice = ConsoleHelper.readInt(
                 "📏 Choose your size:\n" +
                         "   1️⃣ 4\"\n" +
@@ -42,11 +43,12 @@ public class AddSandwichScreen implements Screen<Sandwich> {
 
 // 3) Meat(s): will continue adding extras
         String[] meats = {"Steak", "Ham", "Salami", "Roast Beef", "Chicken", "Bacon"};
-        System.out.println("\n🥩 Meat Options");
-        System.out.println("0️⃣ Skip/Finish adding meat\n");
+        ConsoleHelper.printDivider();
+        System.out.println("🥩 Meat Options");
+        System.out.println("     0) Skip/Finish adding meat");
 
         for (int i = 0; i < meats.length; i++) {
-            System.out.printf("%d) %s\n", i + 1, meats[i]);
+            System.out.printf("     %d) %s\n", i + 1, meats[i]);
         }
 
         //Loop for extra meat

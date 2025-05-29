@@ -10,8 +10,10 @@ public class ConsoleHelper {
         while (true) {
             try {
                 System.out.println(prompt);
+                System.out.print("\n👉 Enter your choice:\n");
                 int input = read.nextInt();
-                read.nextLine(); // clear newline
+                read.nextLine();
+
                 if (input >= min && input <= max) {
                     return input;
                 } else {
@@ -22,6 +24,10 @@ public class ConsoleHelper {
                 read.nextLine();
             }
         }
+    }
+
+    public static void printDivider() {
+        System.out.println("\n✦🍃━━━━━━━━━━━━━༺☁︎｡⋆｡ ﾟ☾ ﾟ｡⋆｡☁︎༻━━━━━━━━━━━━━━━🍃✦\n");
     }
 
 //    public static String readLine(String prompt) {
