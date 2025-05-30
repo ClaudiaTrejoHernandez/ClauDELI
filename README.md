@@ -9,18 +9,18 @@ ClauDELI is a custom sandwich shop application. It automates the ordering proces
 
 - **Home Screen**  
   Offers two options:  
-  - 1) New Order  
-  - 0) Exit  
+  - New Order  
+  - Exit  
   The application keeps running until the user chooses to exit.
 
 - **Order Screen**  
   Displays a menu where the newest entries appear first:  
-  - 1) Add Sandwich  
-  - 2) Add Signature Sandwich  
-  - 3) Add Drink  
-  - 4) Add Chips  
-  - 5) Checkout  
-  - 0) Cancel Order (deletes the current order and returns to the Home Screen)
+  - Add Sandwich  
+  - Add Signature Sandwich  
+  - Add Drink  
+  - Add Chips  
+  - Checkout  
+  - Cancel Order (deletes the current order and returns to the Home Screen)
 
 - **Add Sandwich Screen**  
   Guides the user step-by-step to create a custom sandwich:  
