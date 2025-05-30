@@ -1,6 +1,6 @@
 package com.pluralsight;
 
-import com.pluralsight.MenuItemManager.Order;
+import com.pluralsight.OrderManager.Order;
 import com.pluralsight.ScreensManager.HomeScreen;
 
 public class Main {

@@ -18,7 +18,6 @@ public class Sandwich implements PricedItem {
         this.size = size;
     }
 
-
     public String getSize() {
         return size;
     }

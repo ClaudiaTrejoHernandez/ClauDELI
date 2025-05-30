@@ -3,7 +3,7 @@ package com.pluralsight.ScreensManager;
 import com.pluralsight.Interface.PricedItem;
 import com.pluralsight.Interface.Screen;
 import com.pluralsight.Interface.Topping;
-import com.pluralsight.MenuItemManager.Order;
+import com.pluralsight.OrderManager.Order;
 import com.pluralsight.MenuItemManager.Sandwich;
 import com.pluralsight.Utility.ConsoleHelper;
 
@@ -87,9 +87,10 @@ public class CheckoutScreen implements Screen<Void> {
 
             writer.write(String.format("\n📌 Total: $%.2f%n", order.getTotalPrice()));
             writer.flush();
+
         } catch (IOException e) {
             System.out.println("❌ Error writing receipt file: " + e.getMessage());
         }
     }
-    }
+}
 

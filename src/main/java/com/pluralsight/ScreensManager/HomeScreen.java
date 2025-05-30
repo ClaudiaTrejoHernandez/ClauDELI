@@ -1,7 +1,7 @@
 package com.pluralsight.ScreensManager;
 
 import com.pluralsight.Interface.Screen;
-import com.pluralsight.MenuItemManager.Order;
+import com.pluralsight.OrderManager.Order;
 import com.pluralsight.Utility.ConsoleHelper;
 
 public class HomeScreen implements Screen<Void> {
@@ -26,7 +26,7 @@ public class HomeScreen implements Screen<Void> {
                             "  \n👉Enter your choice:", 0, 1);
 
             switch (choice) {
-                case 1 -> newOrder();
+                case 1 -> newOrderFlow();
                 case 0 -> {
                     System.out.println("\n👋 Thank you for visiting ClauDELI! See you soon! 👩‍🍳");
                     System.exit(0);
@@ -36,8 +36,7 @@ public class HomeScreen implements Screen<Void> {
     }
 
 
-
-    private void newOrder() {
+    private void newOrderFlow() {
         OrderScreen orderScreen = new OrderScreen(order);
         orderScreen.display();
     }
