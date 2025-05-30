@@ -40,6 +40,10 @@ public class Sandwich implements PricedItem {
         return toppings;
     }
 
+    public boolean isToasted() {
+        return toasted;
+    }
+
     @Override
     public double getPrice() {
         double basePrice = switch (size) {
