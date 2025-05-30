@@ -43,6 +43,8 @@ ClauDELI is a custom sandwich shop application. It automates the ordering proces
   - Cancel: Deletes the order and returns to the Home Screen.
 
 ---
+## 🖼️ ClauDELI App Diagram
+![ClauDELI_Diagram](https://github.com/user-attachments/assets/2c817c41-c021-4ce7-a9c4-9b572bb796b7)
 
 ## 🖥️ Application Screens
 - **Home Screen**  
