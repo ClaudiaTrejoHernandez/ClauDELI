@@ -1,7 +1,7 @@
-package com.pluralsight.Screen;
+package com.pluralsight.ScreensManager;
 
 import com.pluralsight.Interface.Screen;
-import com.pluralsight.OrderManager.Drink;
+import com.pluralsight.MenuItemManager.Drink;
 import com.pluralsight.Utility.ConsoleHelper;
 
 public class AddDrinkScreen implements Screen<Drink> {

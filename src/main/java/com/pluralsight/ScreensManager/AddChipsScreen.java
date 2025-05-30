@@ -1,7 +1,7 @@
-package com.pluralsight.Screen;
+package com.pluralsight.ScreensManager;
 
 import com.pluralsight.Interface.Screen;
-import com.pluralsight.OrderManager.Chip;
+import com.pluralsight.MenuItemManager.Chip;
 import com.pluralsight.Utility.ConsoleHelper;
 
 public class AddChipsScreen implements Screen<Chip> {

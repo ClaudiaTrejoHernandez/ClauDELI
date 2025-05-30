@@ -1,8 +1,8 @@
-package com.pluralsight.Extra;
+package com.pluralsight.Toppings;
 
 import com.pluralsight.Interface.Topping;
 
-public class RegularTopping implements Topping {
+public class PremiumToppings implements Topping {
 
     private String name;
     private String type;
@@ -10,7 +10,7 @@ public class RegularTopping implements Topping {
     private String size;
 
     //Constructor for no extra toppings
-    public RegularTopping(String name, String type, boolean isExtra, String size) {
+    public PremiumToppings(String name, String type, boolean isExtra, String size) {
         this.name = name;
         this.type = type;
         this.isExtra = isExtra;
@@ -19,7 +19,7 @@ public class RegularTopping implements Topping {
 
     @Override
     public String getName() {
-        return (isExtra ? "Extra " : "") + name;
+        return (isExtra ? "Toppings " : "") + name;
     }
 
     @Override

@@ -1,12 +1,12 @@
-package com.pluralsight.Extra;
+package com.pluralsight.Toppings;
 
 import com.pluralsight.Interface.Topping;
 
-public class SimpleTopping implements Topping {
+public class RegularToppings implements Topping {
 
     private String name;
 
-    public SimpleTopping(String name) {
+    public RegularToppings(String name) {
         this.name = name;
     }
 

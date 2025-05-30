@@ -1,6 +1,5 @@
-package com.pluralsight.OrderManager;
+package com.pluralsight.MenuItemManager;
 
-import com.pluralsight.Extra.RegularTopping;
 import com.pluralsight.Interface.PricedItem;
 import com.pluralsight.Interface.Topping;
 

@@ -1,9 +1,9 @@
-package com.pluralsight.Screen;
+package com.pluralsight.ScreensManager;
 
-import com.pluralsight.Extra.RegularTopping;
+import com.pluralsight.Toppings.PremiumToppings;
 import com.pluralsight.Interface.Screen;
-import com.pluralsight.OrderManager.Sandwich;
-import com.pluralsight.Extra.SimpleTopping;
+import com.pluralsight.MenuItemManager.Sandwich;
+import com.pluralsight.Toppings.RegularToppings;
 import com.pluralsight.Utility.ConsoleHelper;
 
 public class AddSandwichScreen implements Screen<Sandwich> {
@@ -56,7 +56,7 @@ public class AddSandwichScreen implements Screen<Sandwich> {
         while (true) {
             int choice = ConsoleHelper.readInt("👉 Enter your choice (0-6): ", 0, meats.length);
             if (choice == 0) break;
-            sandwich.addTopping(new RegularTopping(meats[choice - 1], "meat", false, size));
+            sandwich.addTopping(new PremiumToppings(meats[choice - 1], "meat", false, size));
         }
 
 
@@ -73,7 +73,7 @@ public class AddSandwichScreen implements Screen<Sandwich> {
         while (true) {
             int choice = ConsoleHelper.readInt("👉 Enter your choice (0-4): ", 0, cheeses.length);
             if (choice == 0) break;
-            sandwich.addTopping(new RegularTopping(cheeses[choice - 1], "cheese", false, size));
+            sandwich.addTopping(new PremiumToppings(cheeses[choice - 1], "cheese", false, size));
         }
 
 // 5) Additional toppings
@@ -88,7 +88,7 @@ public class AddSandwichScreen implements Screen<Sandwich> {
         while (true) {
             int choice = ConsoleHelper.readInt("👉 Enter your choice (0-9): ", 0, toppings.length);
             if (choice == 0) break;
-            sandwich.addTopping(new SimpleTopping(toppings[choice - 1]));
+            sandwich.addTopping(new RegularToppings(toppings[choice - 1]));
         }
 
 // 6) Sauces
@@ -103,7 +103,7 @@ public class AddSandwichScreen implements Screen<Sandwich> {
         while (true) {
             int choice = ConsoleHelper.readInt("👉 Enter your choice (0-6): ", 0, sauces.length);
             if (choice == 0) break;
-            sandwich.addTopping(new SimpleTopping(sauces[choice - 1]));
+            sandwich.addTopping(new RegularToppings(sauces[choice - 1]));
         }
 
 // 7) Sides
@@ -118,7 +118,7 @@ public class AddSandwichScreen implements Screen<Sandwich> {
         while (true) {
             int choice = ConsoleHelper.readInt("👉 Enter your choice (0-2): ", 0, sides.length);
             if (choice == 0) break;
-            sandwich.addTopping(new SimpleTopping(sides[choice - 1]));
+            sandwich.addTopping(new RegularToppings(sides[choice - 1]));
         }
 
         return sandwich;

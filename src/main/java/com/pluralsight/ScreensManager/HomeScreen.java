@@ -1,7 +1,7 @@
-package com.pluralsight.Screen;
+package com.pluralsight.ScreensManager;
 
 import com.pluralsight.Interface.Screen;
-import com.pluralsight.OrderManager.Order;
+import com.pluralsight.MenuItemManager.Order;
 import com.pluralsight.Utility.ConsoleHelper;
 
 public class HomeScreen implements Screen<Void> {

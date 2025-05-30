@@ -1,8 +1,8 @@
-package com.pluralsight.Screen;
+package com.pluralsight.ScreensManager;
 
-import com.pluralsight.Extra.RegularTopping;
+import com.pluralsight.Toppings.PremiumToppings;
 import com.pluralsight.Interface.Screen;
-import com.pluralsight.OrderManager.Sandwich;
+import com.pluralsight.MenuItemManager.Sandwich;
 import com.pluralsight.Utility.ConsoleHelper;
 
 public class SignatureSandwichScreen implements Screen<Sandwich> {
@@ -43,11 +43,11 @@ public class SignatureSandwichScreen implements Screen<Sandwich> {
         s.setToasted(true);
         s.setName("The Bobster");
 
-        s.addTopping(new RegularTopping("Bacon", "meat", false, "8"));
-        s.addTopping(new RegularTopping("Lobster", "meat", false, "8"));
-        s.addTopping(new RegularTopping("Lettuce", "veggie", false, "8"));
-        s.addTopping(new RegularTopping("Tomato", "veggie", false, "8"));
-        s.addTopping(new RegularTopping("Mayo", "sauce", false, "8"));
+        s.addTopping(new PremiumToppings("Bacon", "meat", false, "8"));
+        s.addTopping(new PremiumToppings("Lobster", "meat", false, "8"));
+        s.addTopping(new PremiumToppings("Lettuce", "veggie", false, "8"));
+        s.addTopping(new PremiumToppings("Tomato", "veggie", false, "8"));
+        s.addTopping(new PremiumToppings("Mayo", "sauce", false, "8"));
 
         return s;
     }
@@ -57,12 +57,12 @@ public class SignatureSandwichScreen implements Screen<Sandwich> {
         s.setToasted(true);
         s.setName("ClaudZilla Melt");
 
-        s.addTopping(new RegularTopping("Roast Beef", "meat", false, "12"));
-        s.addTopping(new RegularTopping("Cheddar", "cheese", false, "12"));
-        s.addTopping(new RegularTopping("Swiss", "cheese", false, "12"));
-        s.addTopping(new RegularTopping("Grilled Onions", "veggie", false, "12"));
-        s.addTopping(new RegularTopping("Peppers", "veggie", false, "12"));
-        s.addTopping(new RegularTopping("Ranch", "sauce", false, "12"));
+        s.addTopping(new PremiumToppings("Roast Beef", "meat", false, "12"));
+        s.addTopping(new PremiumToppings("Cheddar", "cheese", false, "12"));
+        s.addTopping(new PremiumToppings("Swiss", "cheese", false, "12"));
+        s.addTopping(new PremiumToppings("Grilled Onions", "veggie", false, "12"));
+        s.addTopping(new PremiumToppings("Peppers", "veggie", false, "12"));
+        s.addTopping(new PremiumToppings("Ranch", "sauce", false, "12"));
 
         return s;
     }

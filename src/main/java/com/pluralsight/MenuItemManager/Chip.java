@@ -1,4 +1,4 @@
-package com.pluralsight.OrderManager;
+package com.pluralsight.MenuItemManager;
 
 import com.pluralsight.Interface.PricedItem;
 

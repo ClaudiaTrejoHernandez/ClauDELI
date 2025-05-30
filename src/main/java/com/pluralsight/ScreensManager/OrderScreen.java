@@ -1,10 +1,10 @@
-package com.pluralsight.Screen;
+package com.pluralsight.ScreensManager;
 
 import com.pluralsight.Interface.Screen;
-import com.pluralsight.OrderManager.Chip;
-import com.pluralsight.OrderManager.Drink;
-import com.pluralsight.OrderManager.Order;
-import com.pluralsight.OrderManager.Sandwich;
+import com.pluralsight.MenuItemManager.Chip;
+import com.pluralsight.MenuItemManager.Drink;
+import com.pluralsight.MenuItemManager.Order;
+import com.pluralsight.MenuItemManager.Sandwich;
 import com.pluralsight.Utility.ConsoleHelper;
 
 public class OrderScreen implements Screen<Void> {
@@ -19,7 +19,7 @@ public class OrderScreen implements Screen<Void> {
     public Void display() {
         while (true) {
             System.out.println("✦🍃━━━━━━━━━━━━━༺☁︎｡⋆｡ ﾟ☾ ﾟ｡⋆｡☁︎༻━━━━━━━━━━━━━━━🍃✦");
-            System.out.println("                 🛒 Order Screen 🛒");
+            System.out.println("                 🛒 Order ScreensManager 🛒");
             System.out.println("✦🍃━━━━━━━━━━━━━༺｡⋆｡☾｡⋆｡☁︎｡⋆｡☁︎༻━━━━━━━━━━━━━━━🍃✦");
 
             int choice = ConsoleHelper.readInt(

@@ -1,4 +1,4 @@
-package com.pluralsight.OrderManager;
+package com.pluralsight.MenuItemManager;
 
 import junit.framework.TestCase;
 

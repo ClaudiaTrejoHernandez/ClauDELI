@@ -1,6 +1,7 @@
-package com.pluralsight.OrderManager;
+package com.pluralsight.MenuItemManager;
 
 import com.pluralsight.Interface.PricedItem;
+import com.pluralsight.ScreensManager.CheckoutScreen;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,7 +41,10 @@ public class Order{
 
     }
 
-
+    public void saveReceipt() {
+        CheckoutScreen savingReceipt = new CheckoutScreen(this);
+        savingReceipt.saveReceiptAsTXT();
+    }
 
     public void clearItems() {
         items.clear();

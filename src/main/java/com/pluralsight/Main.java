@@ -1,7 +1,7 @@
 package com.pluralsight;
 
-import com.pluralsight.OrderManager.Order;
-import com.pluralsight.Screen.HomeScreen;
+import com.pluralsight.MenuItemManager.Order;
+import com.pluralsight.ScreensManager.HomeScreen;
 
 public class Main {
     public static void main(String[] args) {
