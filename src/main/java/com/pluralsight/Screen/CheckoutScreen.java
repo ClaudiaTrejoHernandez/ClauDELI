@@ -26,7 +26,7 @@ public class CheckoutScreen implements Screen<Void> {
 
         // Confirm or Cancel
         int choice = ConsoleHelper.readInt(
-                "\nWould you like to confirm this order?\n" +
+                "Would you like to confirm this order?\n" +
                         "   1️⃣ Confirm and Save Receipt\n" +
                         "   0️⃣ Cancel Order and Return to Home 🏠\n" +
                         "👉 Enter your choice: ", 0, 1);

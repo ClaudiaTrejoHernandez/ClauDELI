@@ -21,7 +21,7 @@ public class AddDrinkScreen implements Screen<Drink> {
                         "   1️⃣ Small ($2.00)\n" +
                         "   2️⃣ Medium ($2.50)\n" +
                         "   3️⃣ Large ($3.00)\n" +
-                        "\n👉 Enter your choice", 1, 3);
+                        "👉 Enter your choice", 1, 3);
 
         switch (sizeChoice) {
             case 1 -> size = "Small";

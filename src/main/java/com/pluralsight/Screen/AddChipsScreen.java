@@ -18,7 +18,7 @@ public class AddChipsScreen implements Screen<Chip> {
                         "     2) Sour Cream & Onion\n" +
                         "     3) Salt & Vinegar\n" +
                         "     4) Fritos\n" +
-                        "\n👉 Enter your choice", 1, 4);
+                        "👉 Enter your choice", 1, 4);
 
         String flavor = switch (chipChoice) {
             case 1 -> "Lay's BBQ";

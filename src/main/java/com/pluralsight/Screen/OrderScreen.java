@@ -54,7 +54,7 @@ public class OrderScreen implements Screen<Void> {
         AddSandwichScreen screen = new AddSandwichScreen();
         Sandwich sandwich = screen.display();
         order.addItem(sandwich);
-        System.out.println("✅ Added " + sandwich.getName() + " to your order!\n");
+        System.out.println("\n✅ Added " + sandwich.getName() + " to your order!\n");
     }
 
     private void signatureSandwich() {
@@ -62,7 +62,7 @@ public class OrderScreen implements Screen<Void> {
         Sandwich sandwich = screen.display();
         if (sandwich != null) {
             order.addItem(sandwich);
-            System.out.println("✅ Added " + sandwich.getName() + " to your order!\n");
+            System.out.println("\n✅ Added " + sandwich.getName() + " to your order!\n");
         } else {
             System.out.println("❌ Signature sandwich selection cancelled.");
         }
