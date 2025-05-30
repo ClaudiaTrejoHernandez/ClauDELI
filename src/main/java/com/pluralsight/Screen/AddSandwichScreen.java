@@ -92,7 +92,7 @@ public class AddSandwichScreen implements Screen<Sandwich> {
         }
 
 // 6) Sauces
-        String[] sauces = {"Mayo", "Mustard", "Ketchup", "Ranch", "Thousand Island Dressing", "Vinaigrette"};
+        String[] sauces = {"Mayo", "Mustard", "Ketchup", "Ranch", "Thousand Island", "Vinaigrette"};
         ConsoleHelper.printDivider();
         System.out.println("🍯 Sauce Options:");
         for (int i = 0; i < sauces.length; i++) {
