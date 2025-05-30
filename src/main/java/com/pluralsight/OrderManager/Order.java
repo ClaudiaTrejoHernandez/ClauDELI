@@ -16,7 +16,7 @@ public class Order{
     private List<PricedItem> items = new ArrayList<>();
 
     public void addItem(PricedItem item) {
-        items.add(item);
+        items.add(0, item);
     }
 
     public double getTotalPrice() {
@@ -26,44 +26,54 @@ public class Order{
     }
 
     public void printReceipt() {
-        System.out.println("\n🧾 Order Receipt:");
+        System.out.println("\n🧾 Order Receipt:\n");
 
         for (PricedItem item : items) {
-            System.out.printf("- %-20s $%.2f%n", item.getName(), item.getPrice());
+            if (item instanceof Sandwich sandwich) {
+                String toasted = sandwich.isToasted() ? "Toasted" : "";
+                System.out.printf("➡️ %-20s | $%.2f | %s%n", sandwich.getName(), sandwich.getPrice(), toasted);
 
             //Print sandwich toppings
-            if (item instanceof Sandwich sandwich) {
                 sandwich.getToppings().forEach(t->
                 System.out.printf("     -> %-17s $%.2f%n", t.getName(), t.getTotalPrice()));
+
+            } else {
+                System.out.printf("➡️ %-20s | $%.2f%n", item.getName(), item.getPrice());
             }
         }
 
-        System.out.printf("\nTotal: $%.2f%n", getTotalPrice());
+//        System.out.printf("\nTotal: $%.2f%n", getTotalPrice());
     }
 
     public void saveReceiptAsTXT() {
-        // Create the receipts directory if it doesn’t exist
-        File receiptsDir = new File("receipts");
-        if (!receiptsDir.exists()) {
-            receiptsDir.mkdirs();  // creates receipts/ folder
+        // Create the receipts folder if it doesn’t exist
+        File receiptsFolder = new File("receipts");
+        if (!receiptsFolder.exists()) {
+            receiptsFolder.mkdirs();  // creates receipts/ folder
         }
 
         // Generate timestamped file name
         LocalDateTime now = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss");
         String fileName = now.format(formatter) + ".txt";
-        File receiptFile = new File(receiptsDir, fileName);
+        File receiptFile = new File(receiptsFolder, fileName);
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(receiptFile))) {
             writer.write("🧾 Order Receipt:\n");
+
+            //Add each item
             for (PricedItem item : items) {
                 writer.write("- " + item.getName() + ", $" + String.format("%.2f", item.getPrice()) + "\n");
+
+                //If item is a sandwich:
                 if (item instanceof Sandwich sandwich) {
                     for (Topping t : sandwich.getToppings()) {
                         writer.write("    -> " + t.getName() + ", $" + String.format("%.2f", t.getTotalPrice()) + "\n");
                     }
                 }
+
             }
+
             writer.write("\nTotal: $" + String.format("%.2f", getTotalPrice()) + "\n");
             System.out.println("📝 Receipt saved as: receipts/" + fileName);
         } catch (IOException e) {
