@@ -10,17 +10,16 @@ public class ConsoleHelper {
         while (true) {
             try {
                 System.out.println(prompt);
-                System.out.print("\n👉 Enter your choice:\n");
                 int input = read.nextInt();
                 read.nextLine();
 
                 if (input >= min && input <= max) {
                     return input;
                 } else {
-                    System.out.println("❌ Please enter a number between " + min + " and " + max + ".");
+                    System.out.println("\n❌ Please enter a number between " + min + " and " + max + ".\n");
                 }
             } catch (InputMismatchException e) {
-                System.out.println("❌ Invalid input. Please enter a number.");
+                System.out.println("\n❌ Invalid input. Please enter a number.\n");
                 read.nextLine();
             }
         }

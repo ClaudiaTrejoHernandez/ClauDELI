@@ -9,7 +9,7 @@ public class AddDrinkScreen implements Screen<Drink> {
     @Override
     public Drink display() {
         System.out.println("✦🍃━━━━━━━━━━━━━༺☁︎｡⋆｡ ﾟ☾ ﾟ｡⋆｡☁︎༻━━━━━━━━━━━━━━━🍃✦");
-        System.out.println("               🥤 Choose Your Drink 🥤");
+        System.out.println("                 🥤 Drink Menu 🥤");
         System.out.println("✦🍃━━━━━━━━━━━━━༺｡⋆｡☾｡⋆｡☁︎｡⋆｡☁︎༻━━━━━━━━━━━━━━━🍃✦\n");
 
         String size = "";
@@ -20,7 +20,8 @@ public class AddDrinkScreen implements Screen<Drink> {
                 "🍶 Choose your drink size:\n" +
                         "   1️⃣ Small ($2.00)\n" +
                         "   2️⃣ Medium ($2.50)\n" +
-                        "   3️⃣ Large ($3.00)", 1, 3);
+                        "   3️⃣ Large ($3.00)\n" +
+                        "\n👉 Enter your choice", 1, 3);
 
         switch (sizeChoice) {
             case 1 -> size = "Small";
@@ -34,7 +35,8 @@ public class AddDrinkScreen implements Screen<Drink> {
                         "   1️⃣ Pepsi\n" +
                         "   2️⃣ Fanta\n" +
                         "   3️⃣ Dr. Pepper\n" +
-                        "   4️⃣ Lemonade", 1, 4);
+                        "   4️⃣ Lemonade\n" +
+                        "👉 Enter your choice", 1, 4);
 
         switch (flavorChoice) {
             case 1 -> flavor = "Pepsi";
@@ -43,7 +45,6 @@ public class AddDrinkScreen implements Screen<Drink> {
             case 4 -> flavor = "Lemonade";
         }
 
-        System.out.println("\n✅ " + size + " " + flavor + " selected!");
         return new Drink(size, flavor);
     }
 }

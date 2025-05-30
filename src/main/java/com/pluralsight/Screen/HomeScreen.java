@@ -14,15 +14,16 @@ public class HomeScreen implements Screen<Void> {
 
     @Override
     public Void display() {
-        System.out.println("✦🍃━━━━━━━━━━━━━༺☁︎｡⋆｡ ﾟ☾ ﾟ｡⋆｡☁︎༻━━━━━━━━━━━━━━━🍃✦");
-        System.out.println("              🥪 Welcome to ClauDELI 🥪");
-        System.out.println("✦🍃━━━━━━━━━━━━━༺｡⋆｡☾｡⋆｡☁︎｡⋆｡☁︎༻━━━━━━━━━━━━━━━🍃✦");
-
         while (true) {
+            System.out.println("✦🍃━━━━━━━━━━━━━༺☁︎｡⋆｡ ﾟ☾ ﾟ｡⋆｡☁︎༻━━━━━━━━━━━━━━━🍃✦");
+            System.out.println("              🥪 Welcome to ClauDELI 🥪");
+            System.out.println("✦🍃━━━━━━━━━━━━━༺｡⋆｡☾｡⋆｡☁︎｡⋆｡☁︎༻━━━━━━━━━━━━━━━🍃✦");
+
             int choice = ConsoleHelper.readInt(
                     "\n🍽️ What would you like to do?\n" +
                             "   1️⃣ Start a New Order\n" +
-                            "   0️⃣ Exit 🏠", 0, 1);
+                            "   0️⃣ Exit 🏠\n" +
+                            "  \n👉Enter your choice:", 0, 1);
 
             switch (choice) {
                 case 1 -> newOrder();

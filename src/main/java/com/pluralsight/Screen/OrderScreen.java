@@ -17,11 +17,11 @@ public class OrderScreen implements Screen<Void> {
 
     @Override
     public Void display() {
-        System.out.println("✦🍃━━━━━━━━━━━━━༺☁︎｡⋆｡ ﾟ☾ ﾟ｡⋆｡☁︎༻━━━━━━━━━━━━━━━🍃✦");
-        System.out.println("             🛒 Starting a New Order 🛒");
-        System.out.println("✦🍃━━━━━━━━━━━━━༺｡⋆｡☾｡⋆｡☁︎｡⋆｡☁︎༻━━━━━━━━━━━━━━━🍃✦");
-
         while (true) {
+            System.out.println("✦🍃━━━━━━━━━━━━━༺☁︎｡⋆｡ ﾟ☾ ﾟ｡⋆｡☁︎༻━━━━━━━━━━━━━━━🍃✦");
+            System.out.println("                 🛒 Order Screen 🛒");
+            System.out.println("✦🍃━━━━━━━━━━━━━༺｡⋆｡☾｡⋆｡☁︎｡⋆｡☁︎༻━━━━━━━━━━━━━━━🍃✦");
+
             int choice = ConsoleHelper.readInt(
                     "\n🍽️ Choose an item to add:\n" +
                             "   1️⃣ Custom Sandwich 🥪\n" +
@@ -29,7 +29,8 @@ public class OrderScreen implements Screen<Void> {
                             "   3️⃣ Add Drink 🥤\n" +
                             "   4️⃣ Add Chips 🍟\n" +
                             "   5️⃣ Checkout 🛒\n" +
-                            "   0️⃣ Cancel Order 🛑" ,  0, 5);
+                            "   0️⃣ Cancel Order 🛑" +
+                            "   \n👉Enter your option: ",  0, 5);
 
             switch (choice) {
                 case 1 -> customSandwich();
@@ -53,7 +54,7 @@ public class OrderScreen implements Screen<Void> {
         AddSandwichScreen screen = new AddSandwichScreen();
         Sandwich sandwich = screen.display();
         order.addItem(sandwich);
-        System.out.println("✅ Added " + sandwich.getName() + " to your order.");
+        System.out.println("✅ Added " + sandwich.getName() + " to your order!\n");
     }
 
     private void signatureSandwich() {
@@ -61,7 +62,7 @@ public class OrderScreen implements Screen<Void> {
         Sandwich sandwich = screen.display();
         if (sandwich != null) {
             order.addItem(sandwich);
-            System.out.println("✅ Added " + sandwich.getName() + " to your order.");
+            System.out.println("✅ Added " + sandwich.getName() + " to your order!\n");
         } else {
             System.out.println("❌ Signature sandwich selection cancelled.");
         }
@@ -71,35 +72,19 @@ public class OrderScreen implements Screen<Void> {
         AddDrinkScreen screen = new AddDrinkScreen();
         Drink drink = screen.display();
         order.addItem(drink);
-        System.out.println("✅ Added " + drink.getName() + " to your order.");
+        System.out.println("✅ Added " + drink.getName() + " to your order!\n");
     }
 
     private void addChips() {
         AddChipsScreen screen = new AddChipsScreen();
         Chip chips = screen.display();
         order.addItem(chips);
-        System.out.println("✅ Added " + chips.getName() + " to your order.");
+        System.out.println("✅ Added " + chips.getName() + " to your order!\n");
     }
 
     private void checkout() {
-        System.out.println("\n✦🍃━━━━━━━━━━━━━༺☁︎｡⋆｡ ﾟ☾ ﾟ｡⋆｡☁︎༻━━━━━━━━━━━━━━━🍃✦");
-        System.out.println("\n                  🧾 Order Summary:");
-        order.printReceipt();
-        System.out.println("📌 Total: $" + String.format("%.2f", order.getTotalPrice()));
-        System.out.println("✦🍃━━━━━━━━━━━━━༺｡⋆｡☾｡⋆｡☁︎｡⋆｡☁︎༻━━━━━━━━━━━━━━━🍃✦");
-
-        // Ask the user to confirm or cancel the order
-        int choice = ConsoleHelper.readInt(
-                "\nWould you like to confirm this order?\n" +
-                        "   1️⃣ Confirm and Save Receipt\n" +
-                        "   0️⃣ Cancel Order and Return to Home 🏠", 0, 1);
-        if (choice == 1) {
-            order.saveReceiptAsTXT();
-            System.out.println("✅ Thank you for your order!\n");
-        } else {
-            order.clearItems();
-            System.out.println("🚫 Order canceled. Returning to home screen...\n");
-        }
+        CheckoutScreen checkoutScreen = new CheckoutScreen(order);
+        checkoutScreen.display();
     }
 
 

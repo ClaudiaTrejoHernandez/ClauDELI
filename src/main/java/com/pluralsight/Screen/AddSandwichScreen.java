@@ -14,123 +14,113 @@ public class AddSandwichScreen implements Screen<Sandwich> {
         System.out.println("              🥪 Build Your Sandwich 🥪");
         System.out.println("✦🍃━━━━━━━━━━━━━༺｡⋆｡☾｡⋆｡☁︎｡⋆｡☁︎༻━━━━━━━━━━━━━━━🍃✦\n");
 
-
 // 1) Bread
         String[] breads = {"White", "Wheat", "Rye", "Wrap"};
-        int breadChoice = ConsoleHelper.readInt(
-                "🍞 Choose your bread:\n" +
-                        "   1️⃣ White\n" +
-                        "   2️⃣ Wheat\n" +
-                        "   3️⃣ Rye\n" +
-                        "   4️⃣ Wrap", 1, 4);
-        String bread = breads[breadChoice - 1];
+        System.out.println("🍞 Choose your bread:");
+        for (int i = 0; i < breads.length; i++) {
+            System.out.printf("   %d️⃣ %s\n", i + 1, breads[i]);
+        }
+        String bread = breads[ConsoleHelper.readInt("👉 Enter your choice (1-4): ", 1, 4) - 1];
 
 
 // 2) Size
         String[] sizes = {"4", "8", "12"};
         ConsoleHelper.printDivider();
-        int sizeChoice = ConsoleHelper.readInt(
-                "📏 Choose your size:\n" +
-                        "   1️⃣ 4\"\n" +
-                        "   2️⃣ 8\"\n" +
-                        "   3️⃣ 12\"", 1, 3);
-        String size = sizes[sizeChoice - 1];
+        System.out.println("📏 Choose your size:");
+        System.out.println("   1️⃣ 4\"\n   2️⃣ 8\"\n   3️⃣ 12\"");
 
+        String size = sizes[ConsoleHelper.readInt("👉 Enter your choice (1-3): ", 1, 3) - 1];
 
-// Create sandwich
+// Create new sandwich:
         Sandwich sandwich = new Sandwich(bread, size);
 
+// Toasted?
+        ConsoleHelper.printDivider();
+        System.out.println("🔥 Would you like your sandwich toasted?");
+        System.out.println("   1️⃣ Yes\n   2️⃣ No");
+        boolean isToasted = ConsoleHelper.readInt("👉 Enter your choice (1-2): ", 1, 2) == 1;
+        sandwich.setToasted(isToasted);
 
-// 3) Meat(s): will continue adding extras
+
+
+
+// 3) Meat(s)
         String[] meats = {"Steak", "Ham", "Salami", "Roast Beef", "Chicken", "Bacon"};
         ConsoleHelper.printDivider();
-        System.out.println("🥩 Meat Options");
-        System.out.println("     0) Skip/Finish adding meat");
-
+        System.out.println("🥩 Meat Options:");
         for (int i = 0; i < meats.length; i++) {
             System.out.printf("     %d) %s\n", i + 1, meats[i]);
         }
+        System.out.println("     0) Skip/Finish adding Meat");
 
-        //Loop for extra meat
         while (true) {
-            int meatChoice = ConsoleHelper.readInt("👉 Select your meat option (0-6): ", 0, meats.length);
-            if (meatChoice == 0) break;
-            String meat = meats[meatChoice - 1];
-            sandwich.addTopping(new RegularTopping(meat, "meat", false, size));
+            int choice = ConsoleHelper.readInt("👉 Enter your choice (0-6): ", 0, meats.length);
+            if (choice == 0) break;
+            sandwich.addTopping(new RegularTopping(meats[choice - 1], "meat", false, size));
         }
 
 
-// 4) Cheese(s): will continue adding extras
+
+// 4) Cheese(s)
         String[] cheeses = {"American", "Provolone", "Cheddar", "Swiss"};
-        System.out.println("\n🧀 Cheese Options");
-        System.out.println("0️⃣ Skip/Finish adding cheese\n");
-
+        ConsoleHelper.printDivider();
+        System.out.println("🧀 Cheese Options:");
         for (int i = 0; i < cheeses.length; i++) {
-            System.out.printf("%d) %s\n", i + 1, cheeses[i]);
+            System.out.printf("     %d) %s\n", i + 1, cheeses[i]);
         }
+        System.out.println("     0) Skip/Finish adding Cheese");
 
-        //Loop for extra cheese
         while (true) {
-            int cheeseChoice = ConsoleHelper.readInt("👉 Select your cheese option (0-4): ", 0, cheeses.length);
-            if (cheeseChoice == 0) break;
-            String cheese = cheeses[cheeseChoice - 1];
-            sandwich.addTopping(new RegularTopping(cheese, "cheese", false, size));
+            int choice = ConsoleHelper.readInt("👉 Enter your choice (0-4): ", 0, cheeses.length);
+            if (choice == 0) break;
+            sandwich.addTopping(new RegularTopping(cheeses[choice - 1], "cheese", false, size));
         }
 
-
-// 5) Additional toppings (not meat/cheese)
+// 5) Additional toppings
         String[] toppings = {"Lettuce", "Peppers", "Onions", "Tomatoes", "Jalapenos", "Cucumbers", "Pickles", "Guacamole", "Mushrooms"};
-        System.out.println("\n🥗 Additional Toppings");
-        System.out.println("0️⃣ Skip/Finish adding toppings\n");
-
+        ConsoleHelper.printDivider();
+        System.out.println("🥗 Additional Toppings:");
         for (int i = 0; i < toppings.length; i++) {
-            System.out.printf("%d) %s\n", i + 1, toppings[i]);
+            System.out.printf("     %d) %s\n", i + 1, toppings[i]);
         }
+        System.out.println("     0) Skip/Finish adding Toppings");
 
-        //Loop to keep adding toppings
         while (true) {
-            int toppingChoice = ConsoleHelper.readInt("👉 Select topping option (0-9): ", 0, toppings.length);
-            if (toppingChoice == 0) break;
-            sandwich.addTopping(new SimpleTopping(toppings[toppingChoice - 1]));
+            int choice = ConsoleHelper.readInt("👉 Enter your choice (0-9): ", 0, toppings.length);
+            if (choice == 0) break;
+            sandwich.addTopping(new SimpleTopping(toppings[choice - 1]));
         }
-
 
 // 6) Sauces
         String[] sauces = {"Mayo", "Mustard", "Ketchup", "Ranch", "Thousand Island Dressing", "Vinaigrette"};
-        System.out.println("\n🍯 Sauce Options");
-        System.out.println("0️⃣ Skip/Finish adding sauces\n");
-
+        ConsoleHelper.printDivider();
+        System.out.println("🍯 Sauce Options:");
         for (int i = 0; i < sauces.length; i++) {
-            System.out.printf("%d) %s\n", i + 1, sauces[i]);
+            System.out.printf("     %d) %s\n", i + 1, sauces[i]);
         }
+        System.out.println("     0) Skip/Finish adding Sauces");
 
-        //Loop to keep adding sauces
         while (true) {
-            int sauceChoice = ConsoleHelper.readInt("👉 Select sauce option (0-6): ", 0, sauces.length);
-            if (sauceChoice == 0) break;
-            sandwich.addTopping(new SimpleTopping(sauces[sauceChoice - 1]));
+            int choice = ConsoleHelper.readInt("👉 Enter your choice (0-6): ", 0, sauces.length);
+            if (choice == 0) break;
+            sandwich.addTopping(new SimpleTopping(sauces[choice - 1]));
         }
-
 
 // 7) Sides
         String[] sides = {"Au Jus", "Spicy Sauce"};
-        System.out.println("\n🍽️ Sides Options");
-        System.out.println("0️⃣ Skip/Finish adding sides\n");
-
+        ConsoleHelper.printDivider();
+        System.out.println("🍽️ Sides Options:");
         for (int i = 0; i < sides.length; i++) {
-            System.out.printf("%d) %s\n", i + 1, sides[i]);
+            System.out.printf("     %d) %s\n", i + 1, sides[i]);
         }
+        System.out.println("     0) Skip/Finish adding Sides");
 
         while (true) {
-            int sideChoice = ConsoleHelper.readInt("👉 Select side option (0-2): ", 0, sides.length);
-            if (sideChoice == 0) break;
-            sandwich.addTopping(new SimpleTopping(sides[sideChoice - 1]));
+            int choice = ConsoleHelper.readInt("👉 Enter your choice (0-2): ", 0, sides.length);
+            if (choice == 0) break;
+            sandwich.addTopping(new SimpleTopping(sides[choice - 1]));
         }
-
-        System.out.println("\n✅ Your custom sandwich is complete!");
-        System.out.println("✦🍃━━━━━━━━━━━━━༺☁︎｡⋆｡ ﾟ☾ ﾟ｡⋆｡☁︎༻━━━━━━━━━━━━━━━🍃✦");
 
         return sandwich;
     }
 }
-

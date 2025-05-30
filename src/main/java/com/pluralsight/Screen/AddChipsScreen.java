@@ -9,14 +9,16 @@ public class AddChipsScreen implements Screen<Chip> {
     @Override
     public Chip display() {
         System.out.println("✦🍃━━━━━━━━━━━━━༺☁︎｡⋆｡ ﾟ☾ ﾟ｡⋆｡☁︎༻━━━━━━━━━━━━━━━🍃✦");
-        System.out.println("               🍟 Choose Your Chips 🍟");
+        System.out.println("                  🍟 Chips Menu 🍟");
         System.out.println("✦🍃━━━━━━━━━━━━━༺｡⋆｡☾｡⋆｡☁︎｡⋆｡☁︎༻━━━━━━━━━━━━━━━🍃✦\n");
 
         int chipChoice = ConsoleHelper.readInt(
-                "🥔 1) Lay's BBQ\n" +
-                        "🥔 2) Sour Cream & Onion\n" +
-                        "🥔 3) Salt & Vinegar\n" +
-                        "🥔 4) Fritos", 1, 4);
+                 "🍟 Choose your chip flavor:\n" +
+                        "     1) Lay's BBQ\n" +
+                        "     2) Sour Cream & Onion\n" +
+                        "     3) Salt & Vinegar\n" +
+                        "     4) Fritos\n" +
+                        "\n👉 Enter your choice", 1, 4);
 
         String flavor = switch (chipChoice) {
             case 1 -> "Lay's BBQ";
@@ -26,7 +28,6 @@ public class AddChipsScreen implements Screen<Chip> {
             default -> throw new IllegalStateException("Unexpected value: " + chipChoice);
         };
 
-        System.out.println("\n✅ " + flavor + " selected!");
         return new Chip(flavor);
     }
 }
